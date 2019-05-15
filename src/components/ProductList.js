@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button} from 'react-bootstrap';
+import { Button } from 'react-bootstrap';
 
 import { connect } from 'react-redux'
 
@@ -18,7 +18,10 @@ const styles = {
 
 const mapDispatchToProps = dispatch => ({
   onAddToCart: value =>
-    dispatch({ type: 'ADD_TO_CARD', key: 'cart', value })
+    dispatch({
+      type: 'ADD_TO_CARD',
+      cart: value
+    })
 })
 
 
@@ -55,7 +58,7 @@ class ProductList extends Component {
   }
 
 
-  addToCart = () => {
+  addToCart = (product) => {
     this.props.onAddToCart(product);
   }
 }
